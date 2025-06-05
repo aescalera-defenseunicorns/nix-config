@@ -20,6 +20,7 @@
     eza
     btop
     caddy
+    tldr
 
     # standard utils
     file
