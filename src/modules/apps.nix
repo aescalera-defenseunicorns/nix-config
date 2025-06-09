@@ -21,6 +21,7 @@
     btop
     caddy
     tldr
+    zellij
 
     # standard utils
     file
