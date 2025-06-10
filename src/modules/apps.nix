@@ -5,6 +5,7 @@
     # k8s
     kubectl
     k9s
+    docker-buildx
 
     # langs
     go
