@@ -7,6 +7,8 @@
     k9s
     docker-buildx
 
+    qemu
+
     # langs
     go
     alejandra # better nix fmt
@@ -48,6 +50,9 @@
 
     # productivity
     glow # markdown previewer in terminal
+
+    # dev
+    chatgpt
   ];
   # environment.variables.EDITOR = "nvim";
 
