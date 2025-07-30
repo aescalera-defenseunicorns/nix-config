@@ -28,7 +28,7 @@ debug/apply:
 # update all flake inputs (updates nixpkgs, home-manager, etc)
 # run this, then the darwin target to update packages
 update:
-	nix flake update
+	nix flake update --flake './src'
 
 # List all generations of the system profile
 history:

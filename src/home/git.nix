@@ -28,6 +28,7 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
+      http.postBuffer = 524288000;
     };
 
     signing = {

@@ -12,6 +12,7 @@
     # langs
     go
     alejandra # better nix fmt
+    uv # better python virtual envs
 
     # new utils
     ripgrep # recursively searches directories for a regex pattern
@@ -25,6 +26,11 @@
     caddy
     tldr
     zellij
+
+    # security
+
+    syft
+    grype
 
     # standard utils
     file
@@ -53,8 +59,9 @@
 
     # dev
     chatgpt
+    claude-code
   ];
-  # environment.variables.EDITOR = "nvim";
+  environment.variables.EDITOR = "nvim";
 
   # Prefer to install from nixpkgs, but some apps are not available there, or are broken.
   # homebrew must be installed manually first.
