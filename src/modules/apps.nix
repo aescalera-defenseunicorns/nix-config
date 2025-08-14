@@ -11,6 +11,11 @@
 
     # langs
     go
+    golangci-lint
+    gci
+    gofumpt
+    gosec
+    govulncheck
     alejandra # better nix fmt
     uv # better python virtual envs
 
