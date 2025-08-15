@@ -52,7 +52,7 @@
   home.shellAliases = {
     k = "kubectl";
     m = "make";
-    grep = "rg";
+    # grep = "rg";
     ls = "eza -a --long --git";
     vi = "nvim";
     vim = "nvim";
