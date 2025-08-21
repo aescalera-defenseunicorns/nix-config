@@ -10,9 +10,9 @@
         fi
       '';
       zshConfig = lib.mkOrder 1000 ''
-        export PATH="$HOME/.local/bin:$PATH"
-        export PATH="$HOME/.cargo/bin:$PATH"
-        export PATH="$HOME/go/bin:$PATH"
+        export PATH="$PATH:$HOME/.local/bin"
+        export PATH="$PATH:$HOME/.cargo/bin"
+        export PATH="$PATH:$HOME/go/bin"
 
         export EDITOR=nvim
         export PAGER=bat
