@@ -65,6 +65,11 @@
     # dev
     chatgpt
     claude-code
+
+    # infra
+    terraform
+    packer
+    ansible
   ];
   environment.variables.EDITOR = "nvim";
 
