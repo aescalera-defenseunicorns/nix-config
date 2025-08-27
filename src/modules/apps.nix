@@ -110,6 +110,8 @@
 
       "zarf"
       "uds"
+
+      "ghostty"
     ];
 
     # `brew install --cask`
