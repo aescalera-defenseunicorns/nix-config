@@ -6,6 +6,7 @@
     kubectl
     k9s
     docker-buildx
+    docker-compose
 
     qemu
 
@@ -110,8 +111,6 @@
 
       "zarf"
       "uds"
-
-      "ghostty"
     ];
 
     # `brew install --cask`
@@ -132,6 +131,8 @@
       "wireshark" # network analyzer
 
       "appgate-sdp-client" # ztna
+
+      "ghostty"
     ];
   };
 }
