@@ -37,6 +37,7 @@
 
     syft
     grype
+    semgrep
 
     # standard utils
     file
