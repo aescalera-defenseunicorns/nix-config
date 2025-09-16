@@ -4,6 +4,7 @@
     ./core.nix
     ./git.nix
     ./gnupg.nix
+    ./ssh-config.nix
   ];
 
   home = {

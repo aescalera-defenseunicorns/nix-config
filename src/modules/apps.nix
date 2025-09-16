@@ -13,7 +13,7 @@
     # langs
     go
     golangci-lint
-    gci
+    #gci
     gofumpt
     gosec
     govulncheck
@@ -112,6 +112,8 @@
 
       "zarf"
       "uds"
+
+      "gci"
     ];
 
     # `brew install --cask`
