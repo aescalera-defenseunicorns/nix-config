@@ -19,6 +19,10 @@
     govulncheck
     alejandra # better nix fmt
     uv # better python virtual envs
+    jdk
+
+    pcsclite
+    pcsc-tools
 
     # new utils
     ripgrep # recursively searches directories for a regex pattern
@@ -63,6 +67,7 @@
 
     # productivity
     glow # markdown previewer in terminal
+    _1password-cli
 
     # dev
     chatgpt
