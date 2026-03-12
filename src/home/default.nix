@@ -5,6 +5,7 @@
     ./git.nix
     ./gnupg.nix
     ./ssh-config.nix
+    ./tmux.nix
   ];
 
   home = {

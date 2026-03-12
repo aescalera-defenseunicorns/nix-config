@@ -18,9 +18,15 @@
     gosec
     govulncheck
     alejandra # better nix fmt
+
     uv # better python virtual envs
+    black
+
     jdk
 
+    nodejs_25
+
+    # crypto
     pcsclite
     pcsc-tools
 
