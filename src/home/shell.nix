@@ -21,6 +21,10 @@
         export LC_ALL=en_US.UTF-8
         export LANG=en_US.UTF-8
 
+        export ENABLE_LSP_TOOL=1
+
+        DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
+
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
         eval "$(/opt/homebrew/bin/brew shellenv)"
