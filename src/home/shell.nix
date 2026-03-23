@@ -23,7 +23,7 @@
 
         export ENABLE_LSP_TOOL=1
 
-        DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
+        DOCKER_HOST=$(/opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
 
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
