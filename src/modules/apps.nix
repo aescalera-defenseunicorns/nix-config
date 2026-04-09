@@ -74,6 +74,7 @@
     # productivity
     glow # markdown previewer in terminal
     _1password-cli
+    asciinema
 
     # dev
     chatgpt
@@ -143,6 +144,7 @@
       "warp" # iterm2 + chatjippity
       "windsurf" # vscode + chatjippity
       "wireshark" # network analyzer
+      "claude"
 
       "appgate-sdp-client" # ztna
 

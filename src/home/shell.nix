@@ -21,9 +21,11 @@
         export LC_ALL=en_US.UTF-8
         export LANG=en_US.UTF-8
 
+        # Claude code stuffs
         export ENABLE_LSP_TOOL=1
+        export CLAUDE_CODE_NO_FLICKER=1
 
-        DOCKER_HOST=$(/opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
+        DOCKER_HOST=$(echo $PATH; /opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
 
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
