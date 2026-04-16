@@ -79,6 +79,8 @@
     # dev
     chatgpt
     claude-code
+    python314
+    python314Packages.mlx-vlm
 
     # infra
     terraform
@@ -126,6 +128,7 @@
       "uds"
 
       "gci"
+      "ollama"
     ];
 
     # `brew install --cask`
