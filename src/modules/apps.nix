@@ -77,8 +77,6 @@
     asciinema
 
     # dev
-    chatgpt
-    claude-code
     python314
     python314Packages.mlx-vlm
 
@@ -144,10 +142,8 @@
       # Development
       "utm" # vms
       "obsidian" # digital twin
-      "warp" # iterm2 + chatjippity
       "windsurf" # vscode + chatjippity
       "wireshark" # network analyzer
-      "claude"
 
       "appgate-sdp-client" # ztna
 
