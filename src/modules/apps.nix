@@ -119,13 +119,15 @@
       "colima"
       "k3d"
       "helm"
-
-      "pinentry-mac"
-
       "zarf"
       "uds"
 
+      "glab"
+
+      "pinentry-mac"
+
       "gci"
+
       "ollama"
     ];
 
