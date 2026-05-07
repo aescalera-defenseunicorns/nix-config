@@ -78,7 +78,8 @@
 
     # dev
     python314
-    python314Packages.mlx-vlm
+    # python314Packages.mlx-vlm
+    # python314Packages.mlx-lm
 
     # infra
     terraform
@@ -109,6 +110,7 @@
 
     taps = [
       "defenseunicorns/tap"
+      "chainguard-dev/tap"
     ];
 
     # prefer to use environment.systemPackages over this
@@ -121,6 +123,8 @@
       "helm"
       "zarf"
       "uds"
+
+      "chainctl"
 
       "glab"
 
