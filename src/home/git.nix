@@ -45,6 +45,8 @@
         user.name = userfullname;
         user.email = useremail;
 
+        credential.helper = "";
+
         alias = {
           # common aliases
           br = "branch";
