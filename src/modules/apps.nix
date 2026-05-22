@@ -11,20 +11,32 @@
     qemu
 
     # langs
+
+    ## golang
     go
     golangci-lint
     #gci
     gofumpt
     gosec
     govulncheck
+
+    ## nix
     alejandra # better nix fmt
 
+    ## python
     uv # better python virtual envs
     black
 
+    ## java
     jdk
 
+    ## node
     nodejs_25
+
+    ## lisp
+    sbcl
+    clisp
+    shen-sbcl
 
     # crypto
     pcsclite
