@@ -130,7 +130,10 @@
     brews = [
       "docker"
       "podman"
+      "lima"
+      "socket_vmnet"
       "colima"
+
       "k3d"
       "helm"
       "zarf"
