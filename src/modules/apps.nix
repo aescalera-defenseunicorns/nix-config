@@ -31,7 +31,7 @@
     jdk
 
     ## node
-    nodejs_25
+    nodejs_26
 
     ## lisp
     sbcl
