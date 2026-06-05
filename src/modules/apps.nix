@@ -169,6 +169,7 @@
       "wireshark-app" # network analyzer
 
       "appgate-sdp-client" # ztna
+      "secretive" # keys in secure enclave
 
       "ghostty"
     ];
