@@ -110,6 +110,7 @@
       upgrade = true; # Upgrade outdated casks, formulae, and App Store apps
       # 'zap': uninstalls all formulae(and related files) not listed
       cleanup = "zap";
+      extraFlags = ["--force"];
     };
 
     # Applications to install from Mac App Store using mas.
@@ -121,14 +122,15 @@
     };
 
     taps = [
-      "defenseunicorns/tap"
-      "chainguard-dev/tap"
+      "defenseunicorns/tap" # uds
+      "chainguard-dev/tap" # chainctl
     ];
 
     # prefer to use environment.systemPackages over this
     # `brew install`
     brews = [
       "docker"
+      "docker-completion"
       "podman"
       "lima"
       "socket_vmnet"
@@ -164,7 +166,7 @@
       "utm" # vms
       "obsidian" # digital twin
       "windsurf" # vscode + chatjippity
-      "wireshark" # network analyzer
+      "wireshark-app" # network analyzer
 
       "appgate-sdp-client" # ztna
 
