@@ -59,6 +59,7 @@
 
     syft
     grype
+    sops
     # semgrep
 
     # standard utils
