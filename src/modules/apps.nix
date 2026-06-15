@@ -125,12 +125,14 @@
     taps = [
       "defenseunicorns/tap" # uds
       "chainguard-dev/tap" # chainctl
+      "docker/tap"
     ];
 
     # prefer to use environment.systemPackages over this
     # `brew install`
     brews = [
       "docker"
+      "docker/tap/sbx"
       "docker-completion"
       "podman"
       "lima"
