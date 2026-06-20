@@ -33,10 +33,20 @@
     includes = [
       "/Users/aescalera/.colima/ssh_config"
     ];
+    settings = {
+      localhost = {
+        User = "root";
+        Port = 54629;
+        IdentityFile = "/Users/aescalera/.local/share/containers/podman/machine/machine";
+        IdentitiesOnly = true;
 
-    # Host-specific configurations
-    matchBlocks = {
-      # former enableDefaultConfig = true options
+        # Additional configuration for localhost to accept ed25519
+        PubkeyAcceptedAlgorithms = "+ssh-ed25519";
+        PubkeyAcceptedKeyTypes = "+ssh-ed25519";
+      };
+      "github.com" = {
+        user = "git";
+      };
       "*" = {
         forwardAgent = false;
         addKeysToAgent = "no";
@@ -48,23 +58,6 @@
         controlMaster = "no";
         controlPath = "~/.ssh/master-%r@%n:%p";
         controlPersist = "no";
-      };
-
-      "github.com" = {
-        user = "git";
-      };
-
-      "localhost" = {
-        user = "root";
-        port = 54629;
-        identityFile = "/Users/aescalera/.local/share/containers/podman/machine/machine";
-        identitiesOnly = true;
-
-        # Additional configuration for localhost to accept ed25519
-        extraOptions = {
-          PubkeyAcceptedAlgorithms = "+ssh-ed25519";
-          PubkeyAcceptedKeyTypes = "+ssh-ed25519";
-        };
       };
     };
   };
