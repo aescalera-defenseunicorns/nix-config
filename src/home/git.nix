@@ -32,7 +32,6 @@
 
       settings = {
         signing = {
-          # key = "F6F06231397E03C184D461C792FEE6EDB2019086";
           key = usersigningkey;
           signByDefault = true;
         };
