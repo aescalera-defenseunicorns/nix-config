@@ -143,6 +143,7 @@
       "helm"
       "zarf"
       "uds"
+      "atmos"
 
       "chainctl"
 
@@ -168,7 +169,7 @@
       # Development
       "utm" # vms
       "obsidian" # digital twin
-      "windsurf" # vscode + chatjippity
+      "devin-desktop" # vscode + chatjippity
       "wireshark-app" # network analyzer
 
       "appgate-sdp-client" # ztna
