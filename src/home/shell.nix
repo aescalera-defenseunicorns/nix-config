@@ -30,7 +30,7 @@
 
         eval "$(/opt/homebrew/bin/brew shellenv)"
 
-        DOCKER_HOST=$(echo $PATH; /opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
+        DOCKER_HOST=$(/opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
 
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       '';
