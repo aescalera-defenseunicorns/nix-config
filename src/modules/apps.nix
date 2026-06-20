@@ -133,7 +133,6 @@
     # `brew install`
     brews = [
       "docker"
-      "docker/tap/sbx"
       "docker-completion"
       "podman"
       "lima"
@@ -169,6 +168,7 @@
 
       # Development
       "utm" # vms
+      "sbx"
       "obsidian" # digital twin
       "devin-desktop" # vscode + chatjippity
       "wireshark-app" # network analyzer
