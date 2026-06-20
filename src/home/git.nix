@@ -46,6 +46,8 @@
 
         credential.helper = "";
 
+        ghq.root = "~/code";
+
         alias = {
           # common aliases
           br = "branch";

@@ -77,6 +77,7 @@
     curl
     tmux
     git
+    ghq
 
     # archives
     zip
