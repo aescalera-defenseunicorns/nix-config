@@ -25,6 +25,9 @@
         export ENABLE_LSP_TOOL=1
         export CLAUDE_CODE_NO_FLICKER=1
 
+        # docker sbx stuffs
+        export SBX_NO_TELEMETRY=1
+
         eval "$(/opt/homebrew/bin/brew shellenv)"
 
         DOCKER_HOST=$(echo $PATH; /opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
