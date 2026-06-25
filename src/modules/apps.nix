@@ -30,9 +30,6 @@
     ## java
     jdk
 
-    ## node
-    nodejs_26
-
     ## lisp
     sbcl
     clisp
@@ -153,6 +150,8 @@
       "pinentry-mac"
 
       "gci"
+
+      "node"
 
       "ollama"
     ];
