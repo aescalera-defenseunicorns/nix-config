@@ -121,9 +121,21 @@
     };
 
     taps = [
-      "defenseunicorns/tap" # uds
-      "chainguard-dev/tap" # chainctl
-      "docker/tap"
+      {
+        # uds
+        name = "defenseunicorns/tap";
+        trusted = true;
+      }
+      {
+        # chainctl
+        name = "chainguard-dev/tap";
+        trusted = true;
+      }
+      {
+        # sbx
+        name = "docker/tap";
+        trusted = true;
+      }
     ];
 
     # prefer to use environment.systemPackages over this
