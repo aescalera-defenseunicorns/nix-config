@@ -148,6 +148,7 @@
       "chainctl"
 
       "glab"
+      "gh"
 
       "pinentry-mac"
 
