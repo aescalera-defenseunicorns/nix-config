@@ -30,7 +30,15 @@
 
         eval "$(/opt/homebrew/bin/brew shellenv)"
 
-        DOCKER_HOST=$(/opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
+        export DOCKER_HOST=$(/opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
+
+        kubens () {
+          if [ -z "$1" ]; then
+            echo "Must provide namespace argument"
+          else
+            kubectl config set-context --current --namespace="$1"
+          fi
+        }
 
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       '';
@@ -60,6 +68,7 @@
 
   home.shellAliases = {
     k = "kubectl";
+    kns = "kubens";
     m = "make";
     # grep = "rg";
     ls = "eza -a --long --git";
