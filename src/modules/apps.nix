@@ -57,7 +57,6 @@
     zellij
 
     # security
-
     syft
     grype
     sops
@@ -146,7 +145,6 @@
     # `brew install`
     brews = [
       "docker"
-      "docker-completion"
       "podman"
       "lima"
       "socket_vmnet"
