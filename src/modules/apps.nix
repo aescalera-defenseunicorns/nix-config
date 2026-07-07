@@ -33,7 +33,11 @@
     ## lisp
     sbcl
     clisp
-    shen-sbcl
+    shen-sbcl # sequent calculus language
+
+    ## proof assistant
+    # lean4
+    elan # like rustup but for lean
 
     # crypto
     pcsclite
