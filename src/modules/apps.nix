@@ -183,8 +183,8 @@
       # Development
       "utm" # vms
       "sbx"
-      "obsidian" # digital twin
-      "devin-desktop" # vscode + chatjippity
+      # "obsidian" # digital twin
+      # "devin-desktop" # vscode + chatjippity
       "wireshark-app" # network analyzer
 
       "appgate-sdp-client" # ztna
