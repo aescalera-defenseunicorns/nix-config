@@ -40,6 +40,7 @@
         push.autoSetupRemote = true;
         pull.rebase = true;
         http.postBuffer = 524288000;
+        http.maxRequestBuffer = 524288000;
 
         user.name = userfullname;
         user.email = useremail;
