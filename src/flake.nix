@@ -36,6 +36,12 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
+
+    # nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # The `outputs` function will return all the build results of the flake.
@@ -48,6 +54,7 @@
     nixpkgs,
     darwin,
     home-manager,
+    nixvim,
     ...
   }: let
     config = import ./config.nix;
@@ -71,6 +78,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.sharedModules = [nixvim.homeModules.nixvim];
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.users.${config.username} = import ./home;
         }
