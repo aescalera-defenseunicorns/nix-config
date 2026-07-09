@@ -52,7 +52,8 @@
       # File tree
       nvim-tree = {
         enable = true;
-        openOnSetup = false;
+        autoClose = true;
+        openOnSetup = true;
         settings = {
           git = {
             ignore = false;
@@ -258,7 +259,7 @@
         enable = true;
         settings = {
           open_mapping = "[[<c-\\>]]";
-          direction = "float";
+          direction = "horizontal";
         };
       };
 
