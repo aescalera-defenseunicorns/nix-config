@@ -3,15 +3,6 @@
   # home.packages = with pkgs; [];
 
   programs = {
-    # modern vim
-    # neovim = {
-    #   enable = true;
-    #   defaultEditor = true;
-    #   vimAlias = true;
-    #   withRuby = false;
-    #   withPython3 = true;
-    # };
-
     # A modern replacement for ‘ls’
     # useful in bash/zsh prompt, not in nushell.
     eza = {
