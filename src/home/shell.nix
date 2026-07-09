@@ -3,11 +3,11 @@
     enable = true;
     enableCompletion = true;
     autocd = true;
-    sessionVariables = {
-      ZSH_TMUX_AUTOSTART = "true";
-      ZSH_TMUX_AUTOCONNECT = "true";
-      ZSH_TMUX_AUTOQUIT = "true";
-    };
+    # sessionVariables = {
+    #   ZSH_TMUX_AUTOSTART = "true";
+    #   ZSH_TMUX_AUTOCONNECT = "true";
+    #   ZSH_TMUX_AUTOQUIT = "true";
+    # };
 
     initContent = let
       p10kPrompt = lib.mkOrder 500 ''
@@ -61,7 +61,7 @@
         "ohmyzsh/ohmyzsh path:plugins/command-not-found"
         "ohmyzsh/ohmyzsh path:plugins/extract"
         "ohmyzsh/ohmyzsh path:plugins/gpg-agent"
-        "ohmyzsh/ohmyzsh path:plugins/tmux"
+        # "ohmyzsh/ohmyzsh path:plugins/tmux"
 
         "romkatv/powerlevel10k"
 
