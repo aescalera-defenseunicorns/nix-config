@@ -31,6 +31,7 @@
       splitright = true;
       splitbelow = true;
       completeopt = "menu,menuone,noselect";
+      clipboard = "unnamedplus";
     };
 
     globals = {
