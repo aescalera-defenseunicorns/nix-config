@@ -5,7 +5,7 @@ SHELL := /bin/bash
 
 # normal targets
 .PHONY: darwin
-darwin: darwin/build darwin/apply darwin/activate
+darwin: fmt lint darwin/build darwin/apply darwin/activate
 
 .PHONY: darwin/build
 darwin/build:
@@ -71,8 +71,15 @@ gc:
 alejandra:
 	alejandra ./src/*
 
+.PHONY: statix
+statix:
+	statix check ./src/
+
 .PHONY: fmt
 fmt: alejandra
+
+.PHONY: lint
+lint: statix
 
 # show all the auto gc roots in the nix store
 .PHONY: gcroot

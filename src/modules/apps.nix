@@ -22,6 +22,7 @@
 
     ## nix
     alejandra # better nix fmt
+    statix
 
     ## python
     uv # better python virtual envs

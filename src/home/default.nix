@@ -10,7 +10,7 @@
   ];
 
   home = {
-    username = username;
+    inherit username;
     homeDirectory = "/Users/${username}";
 
     # This value determines the Home Manager release that your

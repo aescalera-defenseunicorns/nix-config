@@ -76,11 +76,13 @@
         # home manager
         home-manager.darwinModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.sharedModules = [nixvim.homeModules.nixvim];
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.users.${config.username} = import ./home;
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            sharedModules = [nixvim.homeModules.nixvim];
+            extraSpecialArgs = specialArgs;
+            users.${config.username} = import ./home;
+          };
         }
       ];
     };
