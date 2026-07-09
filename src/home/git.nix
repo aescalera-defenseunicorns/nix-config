@@ -14,7 +14,7 @@
       enable = true;
       enableGitIntegration = true;
       options = {
-        features = "side-by-side";
+        features = lib.mkForce "side-by-side catppuccin-mocha";
       };
     };
 

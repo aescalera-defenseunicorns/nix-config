@@ -42,6 +42,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # catpuccin
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
   };
 
   # The `outputs` function will return all the build results of the flake.
@@ -55,6 +60,7 @@
     darwin,
     home-manager,
     nixvim,
+    catppuccin,
     ...
   }: let
     config = import ./config.nix;
@@ -79,7 +85,10 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            sharedModules = [nixvim.homeModules.nixvim];
+            sharedModules = [
+              nixvim.homeModules.nixvim
+              catppuccin.homeModules.catppuccin
+            ];
             extraSpecialArgs = specialArgs;
             users.${config.username} = import ./home;
           };

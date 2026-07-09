@@ -21,4 +21,7 @@
       enableZshIntegration = true;
     };
   };
+
+  catppuccin.enable = true;
+  catppuccin.autoEnable = true;
 }
