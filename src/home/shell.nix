@@ -36,7 +36,7 @@
 
         eval "$(/opt/homebrew/bin/brew shellenv)"
 
-        export DOCKER_HOST=$(/opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
+        # export DOCKER_HOST=$(/opt/homebrew/bin/colima status -j | /run/current-system/sw/bin/jq -r '.docker_socket')
 
         kubens () {
           if [ -z "$1" ]; then

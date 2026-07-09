@@ -151,6 +151,7 @@
       "lima"
       "socket_vmnet"
       "colima"
+      "container"
 
       "k3d"
       "helm"
