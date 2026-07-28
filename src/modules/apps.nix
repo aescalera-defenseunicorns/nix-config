@@ -196,6 +196,7 @@
       "ghostty"
 
       "chatgpt"
+      "linear"
     ];
   };
 }
