@@ -194,6 +194,8 @@
       "secretive" # keys in secure enclave
 
       "ghostty"
+
+      "chatgpt"
     ];
   };
 }
