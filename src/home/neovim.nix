@@ -277,6 +277,7 @@
         settings = {
           open_mapping = "[[<c-\\>]]";
           direction = "horizontal";
+          size = 20;
         };
       };
 
