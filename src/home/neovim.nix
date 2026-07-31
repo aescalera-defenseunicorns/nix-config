@@ -37,6 +37,7 @@
     globals = {
       mapleader = " ";
       maplocalleader = ",";
+      updatetime = 250;
     };
 
     # Colorscheme
@@ -46,6 +47,21 @@
         flavour = "mocha";
       };
     };
+
+    autoCmd = [
+      {
+        event = ["CursorHold"];
+        # Optional: restrict to buffers with an active LSP or specific filetypes
+        # pattern = [ "*" ];
+        callback = {
+          __raw = ''
+            function()
+              vim.diagnostic.open_float(nil, { focus = false })
+            end
+          '';
+        };
+      }
+    ];
 
     # Core plugins
     plugins = {
