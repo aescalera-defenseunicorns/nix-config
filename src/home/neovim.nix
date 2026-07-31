@@ -37,7 +37,7 @@
     globals = {
       mapleader = " ";
       maplocalleader = ",";
-      updatetime = 250;
+      updatetime = 100;
     };
 
     # Colorscheme
@@ -52,7 +52,7 @@
       {
         event = ["CursorHold"];
         # Optional: restrict to buffers with an active LSP or specific filetypes
-        # pattern = [ "*" ];
+        pattern = ["*"];
         callback = {
           __raw = ''
             function()
