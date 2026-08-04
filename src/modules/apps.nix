@@ -171,6 +171,9 @@
       "node"
 
       "ollama"
+
+      "yamllint"
+      "shellcheck"
     ];
 
     # `brew install --cask`
