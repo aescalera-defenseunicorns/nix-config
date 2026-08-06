@@ -93,6 +93,7 @@
     urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
 
     codex = "sbx run  --name codex-code -- --cd $PWD";
+    prime = "sbx run  --name prime-agent-code -- --cwd $PWD";
     rg = "rg --hidden --glob '!.git'";
   };
 }
