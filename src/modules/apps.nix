@@ -98,7 +98,6 @@
     # python314Packages.mlx-lm
 
     # infra
-    terraform
     packer
     ansible
   ];
@@ -158,6 +157,7 @@
       "zarf"
       "uds"
       "atmos"
+      "tofu"
 
       "chainctl"
 
