@@ -157,7 +157,7 @@
       "zarf"
       "uds"
       "atmos"
-      "tofu"
+      "opentofu"
 
       "chainctl"
 
