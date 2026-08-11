@@ -174,6 +174,8 @@
 
       "yamllint"
       "shellcheck"
+
+      "tailscale"
     ];
 
     # `brew install --cask`
@@ -200,6 +202,8 @@
 
       "chatgpt"
       "linear"
+
+      "tailscale-app"
     ];
   };
 }
