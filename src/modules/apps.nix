@@ -140,6 +140,11 @@
         name = "docker/tap";
         trusted = true;
       }
+      {
+        # tflint
+        name = "terraform-linters/tap";
+        trusted = true;
+      }
     ];
 
     # prefer to use environment.systemPackages over this
@@ -159,6 +164,7 @@
       "uds"
       "atmos"
       "opentofu"
+      "tflint"
 
       "chainctl"
 
