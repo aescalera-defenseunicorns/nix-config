@@ -164,7 +164,6 @@
       "uds"
       "atmos"
       "opentofu"
-      "tflint"
 
       "chainctl"
 
@@ -198,6 +197,7 @@
       # Development
       "utm" # vms
       "sbx"
+      "tflint"
       # "obsidian" # digital twin
       # "devin-desktop" # vscode + chatjippity
       "wireshark-app" # network analyzer
