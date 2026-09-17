@@ -21,7 +21,10 @@
         export PATH="$PATH:$HOME/go/bin"
 
         export EDITOR=nvim
+
         export PAGER=bat
+        export DELTA_PAGER='less -R'
+        export BAT_PAGER='less -R'
         export MANPAGER=bat
 
         export LC_ALL=en_US.UTF-8
