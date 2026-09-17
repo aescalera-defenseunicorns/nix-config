@@ -145,6 +145,11 @@
         name = "terraform-linters/tap";
         trusted = true;
       }
+      {
+        # orca
+        name = "stablyai/orca";
+        trusted = true;
+      }
     ];
 
     # prefer to use environment.systemPackages over this
@@ -197,6 +202,7 @@
       # Development
       "utm" # vms
       "sbx"
+      "stablyai/orca/orca"
       "tflint"
       # "obsidian" # digital twin
       # "devin-desktop" # vscode + chatjippity
