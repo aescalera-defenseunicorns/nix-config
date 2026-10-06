@@ -187,6 +187,8 @@
       "shellcheck"
 
       "tailscale"
+
+      "herdr"
     ];
 
     # `brew install --cask`
