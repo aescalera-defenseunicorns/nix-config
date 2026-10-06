@@ -13,9 +13,10 @@
     disk = "100GiB";
     mounts = [
       {
-        location = "/Users/${username}/code";
-        writable = true;
-        mountPoint = "/home/lima/code";
+        location = "~/code";
+        # location = "/Users/${username}/code";
+        # writable = true;
+        # mountPoint = "/home/${username}/code";
       }
     ];
     mountType = "virtiofs";
@@ -23,13 +24,11 @@
       {
         mode = "system";
         script = ''
-          apt update
-          apt install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree zsh
+          apt-get update
+          apt-get install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree zsh
 
           # install docker
           # Add Docker's official GPG key:
-          apt update
-          apt install ca-certificates curl
           install -m 0755 -d /etc/apt/keyrings
           curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
           chmod a+r /etc/apt/keyrings/docker.asc
@@ -44,22 +43,21 @@
           Signed-By: /etc/apt/keyrings/docker.asc
           EOF
 
-          apt update
-          apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+          apt-get update
+          apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
           groupadd docker
-          usermod -aG docker lima
+          usermod -aG docker ${username}
 
           # install uds
           APP=uds-cli
           ARCH=$(go env GOARCH)
           OS=$(go env GOOS)
           LATEST_VERSION=$(curl -s https://api.github.com/repos/defenseunicorns/$APP/releases/latest | jq -r '.name')
-          curl -fsSL -o /usr/bin/uds https://github.com/defenseunicorns/$APP/releases/download/$LATEST_VERSION/$APP_$LATEST_VERSION_$OS_$ARCH
+          curl -fsSL -o /usr/bin/uds https://github.com/defenseunicorns/$APP/releases/download/$LATEST_VERSION/''${APP}_''${LATEST_VERSION}_''${OS}_''${ARCH}
           chmod +x /usr/bin/uds
 
 
-          usermod -aG sudo lima
-          chsh -s zsh lima
+          # chsh -s /bin/zsh ${username}
         '';
       }
       {
@@ -73,8 +71,9 @@
 
           # install nodejs
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
-          . ~/.zshrc
-          nvm install nodejs
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+          nvm install
 
           # ai tools
           npm install -g @openai/codex
