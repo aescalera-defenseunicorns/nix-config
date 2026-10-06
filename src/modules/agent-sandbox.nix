@@ -100,7 +100,7 @@ in {
   ];
 
   environment.shellAliases = {
-    agent-sandbox-start = "${pkgs.lima}/bin/limactl start --name=agent-sandbox ${agentSandboxConfig}";
+    agent-sandbox-start = "${pkgs.lima}/bin/limactl start --yes --progress --name=agent-sandbox ${agentSandboxConfig}";
     agent-sandbox-shell = "${pkgs.lima}/bin/limactl shell agent-sandbox";
   };
 }
