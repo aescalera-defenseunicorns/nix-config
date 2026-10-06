@@ -1,22 +1,19 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  username,
+  ...
+}: let
   agentSandboxConfig = pkgs.writers.writeYAML "agent-sandbox.yaml" {
     vmType = "vz";
-    rosetta = {
-      enabled = true;
-      binfmt = true;
-    };
-    images = [
-      {
-        location = "https://ubuntu.com";
-        arch = "aarch64";
-      }
+    base = [
+      "template:_images/ubuntu-26.04"
     ];
     cpus = 8;
     memory = "16GiB";
     disk = "100GiB";
     mounts = [
       {
-        location = "~/code";
+        location = "/Users/${username}/code";
         writable = true;
         mountPoint = "/home/lima/code";
       }
@@ -27,8 +24,8 @@
         mode = "system";
         script = ''
           apt update
-          apt install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree
-          
+          apt install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree zsh
+
           # install docker
           # Add Docker's official GPG key:
           apt update
@@ -36,17 +33,17 @@
           install -m 0755 -d /etc/apt/keyrings
           curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
           chmod a+r /etc/apt/keyrings/docker.asc
-          
+
           # Add the repository to Apt sources:
           tee /etc/apt/sources.list.d/docker.sources <<EOF
           Types: deb
           URIs: https://download.docker.com/linux/ubuntu
-          Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+          Suites: $(. /etc/os-release && echo "''${UBUNTU_CODENAME:-$VERSION_CODENAME}")
           Components: stable
           Architectures: $(dpkg --print-architecture)
           Signed-By: /etc/apt/keyrings/docker.asc
           EOF
-          
+
           apt update
           apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
           groupadd docker
@@ -56,24 +53,34 @@
           APP=uds-cli
           ARCH=$(go env GOARCH)
           OS=$(go env GOOS)
-          LATEST_VERSION=$(curl -s https://api.github.com/repos/defenseunicorns/${APP}/releases/latest | jq -r '.name')
-          curl -fsSL -o /usr/bin/uds https://github.com/defenseunicorns/${APP}/releases/download/${LATEST_VERSION}/${APP}_${LATEST_VERSION}_${OS}_${ARCH}
+          LATEST_VERSION=$(curl -s https://api.github.com/repos/defenseunicorns/$APP/releases/latest | jq -r '.name')
+          curl -fsSL -o /usr/bin/uds https://github.com/defenseunicorns/$APP/releases/download/$LATEST_VERSION/$APP_$LATEST_VERSION_$OS_$ARCH
           chmod +x /usr/bin/uds
 
 
           usermod -aG sudo lima
+          chsh -s zsh lima
         '';
       }
       {
         mode = "user";
         script = ''
+          # install k3d
+          curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+
           # install UV
           curl -LsSf https://astral.sh/uv/install.sh | sh
 
           # install nodejs
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.8/install.sh | bash
+          . ~/.zshrc
+          nvm install nodejs
 
+          # ai tools
           npm install -g @openai/codex
+          curl -fsSL https://herdr.dev/install.sh | sh
+          npm install -g @openrig/cli
+          rig setup --dry-run
 
           # agent skills
           npx skills add https://github.com/addyosmani/agent-skills         --global --agent '*' --yes --skill documentation-and-adrs
@@ -86,7 +93,7 @@
         '';
       }
     ];
-    propagateProxyEnvs = true;
+    propagateProxyEnv = true;
   };
 in {
   environment.systemPackages = with pkgs; [
