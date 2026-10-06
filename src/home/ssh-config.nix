@@ -31,19 +31,10 @@
 
     # Include additional configurations
     includes = [
-      "/Users/aescalera/.colima/ssh_config"
+      "~/.colima/ssh_config"
+      "~/.lima/*/ssh.config"
     ];
     settings = {
-      localhost = {
-        User = "root";
-        Port = 54629;
-        IdentityFile = "/Users/aescalera/.local/share/containers/podman/machine/machine";
-        IdentitiesOnly = true;
-
-        # Additional configuration for localhost to accept ed25519
-        PubkeyAcceptedAlgorithms = "+ssh-ed25519";
-        PubkeyAcceptedKeyTypes = "+ssh-ed25519";
-      };
       "github.com" = {
         user = "git";
       };
