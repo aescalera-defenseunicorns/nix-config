@@ -14,8 +14,8 @@
     mounts = [
       {
         location = "~/code";
+        writable = true;
         # location = "/Users/${username}/code";
-        # writable = true;
         # mountPoint = "/home/${username}/code";
       }
     ];
