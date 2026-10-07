@@ -95,7 +95,8 @@
           npx skills add https://github.com/szkocot/andrej-karpathy-skills  --global --agent '*' --yes --skill karpathy-guidelines
           npx skills add https://github.com/vercel-labs/skills              --global --agent '*' --yes --skill find-skills
           npx skills add https://github.com/obra/superpowers                --global --agent '*' --yes --skill systematic-debugging
-          npx skills add https://github.com/juliusbrussee/caveman           --global --agent '*' --yes --skill caveman-commit
+          npx skills add https://github.com/juliusbrussee/caveman           --global --agent '*' --yes
+          npx skills add https://github.com/DietrichGebert/ponytail         --global --agent '*' --yes
         '';
       }
     ];
