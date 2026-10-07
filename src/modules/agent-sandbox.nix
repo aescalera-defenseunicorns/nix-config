@@ -63,6 +63,13 @@
       {
         mode = "user";
         script = ''
+          # git config
+          git config --global core.pager delta
+          git config --global interactive.diffFilter 'delta --color-only'
+          git config --global delta.navigate true
+          git config --global delta.dark true  # or `delta.light true`, or omit for auto-detection
+          git config --global merge.conflictStyle zdiff3
+
           # install k3d
           curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 
