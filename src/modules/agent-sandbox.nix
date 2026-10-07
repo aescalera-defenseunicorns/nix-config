@@ -25,7 +25,7 @@
         mode = "system";
         script = ''
           apt-get update
-          apt-get install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree zsh neovim oras git-delta
+          apt-get install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree zsh neovim oras git-delta yq
 
           # install docker
           # Add Docker's official GPG key:
