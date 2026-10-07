@@ -189,6 +189,8 @@
       "tailscale"
 
       "herdr"
+
+      "addlicense"
     ];
 
     # `brew install --cask`
