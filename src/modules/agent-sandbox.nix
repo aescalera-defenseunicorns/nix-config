@@ -25,7 +25,7 @@
         mode = "system";
         script = ''
           apt-get update
-          apt-get install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree zsh neovim oras git-delta yq
+          apt-get install -y sudo git curl ca-certificates build-essential golang-go gopls ripgrep eza gh clang tree zsh neovim oras git-delta yq zoxide
 
           # install docker
           # Add Docker's official GPG key:
@@ -69,6 +69,8 @@
           git config --global delta.navigate true
           git config --global delta.dark true  # or `delta.light true`, or omit for auto-detection
           git config --global merge.conflictStyle zdiff3
+
+          echo 'eval "$(zoxide init bash)"' >> .bashrc
 
           # install k3d
           curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
