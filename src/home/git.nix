@@ -34,6 +34,7 @@
         signing = {
           key = usersigningkey;
           signByDefault = true;
+          format = "openpgp";
         };
 
         init.defaultBranch = "main";
