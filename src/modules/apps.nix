@@ -155,6 +155,7 @@
     # prefer to use environment.systemPackages over this
     # `brew install`
     brews = [
+      # container
       "docker"
       "podman"
       "lima"
@@ -163,6 +164,7 @@
       "container"
       "oras"
 
+      # infra/kube
       "k3d"
       "helm"
       "zarf"
@@ -170,27 +172,28 @@
       "atmos"
       "opentofu"
 
-      "chainctl"
-
-      "glab"
-      "gh"
-
-      "pinentry-mac"
-
-      "gci"
-
-      "node"
-
+      # ai
       "ollama"
-
-      "yamllint"
-      "shellcheck"
-
-      "tailscale"
-
       "herdr"
 
+      # provider CLIs
+      "chainctl"
+      "glab"
+      "gh"
+      "tailscale"
+
+      # security
+      "pinentry-mac"
+
+      # language tools
+      "yamllint"
+      "shellcheck"
       "addlicense"
+      "gci"
+      "ast-grep"
+
+      # languages
+      "node"
     ];
 
     # `brew install --cask`
