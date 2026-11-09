@@ -57,7 +57,7 @@
   # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
   outputs = inputs @ {
     self,
-    nixpkgs,
+    nixpkgs-darwin,
     darwin,
     home-manager,
     nixvim,
@@ -98,7 +98,10 @@
       ];
     };
 
+    # Build the complete configuration when running nix flake check.
+    checks.${config.system}.darwin = self.darwinConfigurations.${config.hostname}.system;
+
     # nix code formatter
-    formatter.${config.system} = nixpkgs.legacyPackages.${config.system}.alejandra;
+    formatter.${config.system} = nixpkgs-darwin.legacyPackages.${config.system}.alejandra;
   };
 }

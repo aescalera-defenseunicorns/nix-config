@@ -30,6 +30,26 @@ Updating is as simple as running `make` again.
 
 use the `debug` target of the makefile to help diagnose build/apply issues
 
+## GitHub Actions
+
+Pull requests and pushes to `main` run Alejandra (`--check`) and `statix check`
+in parallel. Both must pass before `nix flake check` builds the complete
+`aarch64-darwin` configuration on a macOS runner, without activating it.
+The tools come from the flake's locked `nixpkgs-darwin` input.
+
+Every day at 10:23 UTC, **Update flake inputs** runs `nix flake update`, repeats
+those checks, and rejects any `warning:` in lint or build output. Successful
+lockfile changes are opened as a PR and immediately squash-merged into `main`.
+An unchanged lockfile produces no PR. Either workflow can also run manually
+from the Actions tab; updates only run from `main`.
+
+In **Settings → Actions → General → Workflow permissions**, enable
+**Allow GitHub Actions to create and approve pull requests**. The updater uses
+the built-in `GITHUB_TOKEN`; no PAT is needed. Validation runs within the update
+workflow because PRs created with that token do not automatically run CI.
+Merging respects repository branch protections; required reviews or additional
+required checks can block it.
+
 ## TODO
 
 - user apps config (firefox/chrome extensions/themes, windsurf extensions, etc)

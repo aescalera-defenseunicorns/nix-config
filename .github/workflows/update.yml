@@ -1,0 +1,77 @@
+name: Update flake inputs
+
+on:
+  schedule:
+    - cron: "23 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: flake-update
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  update:
+    if: github.ref == 'refs/heads/main'
+    runs-on: macos-26
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+      - uses: cachix/install-nix-action@75c75c31ebece974e48ebc36b4ad125bd97bd97b # v31.11.3
+        with:
+          github_access_token: ${{ github.token }}
+      - name: Update inputs
+        run: nix flake update --flake path:./src
+      - name: alejandra
+        run: nix run --inputs-from path:./src nixpkgs-darwin#alejandra -- --check ./src 2>&1 | tee "$RUNNER_TEMP/validation.log"
+      - name: statix check
+        run: nix run --inputs-from path:./src nixpkgs-darwin#statix -- check ./src 2>&1 | tee -a "$RUNNER_TEMP/validation.log"
+      - name: nix flake check
+        run: nix flake check path:./src --no-write-lock-file --print-build-logs 2>&1 | tee -a "$RUNNER_TEMP/validation.log"
+      - name: Require warning-free validation
+        run: |
+          test -f "$RUNNER_TEMP/validation.log"
+          if grep -i 'warning:' "$RUNNER_TEMP/validation.log"; then
+            echo '::error::Validation emitted warnings; refusing to merge.'
+            exit 1
+          fi
+      - name: Require main to still match the validated base
+        id: validated
+        run: |
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          git add src/flake.lock
+          echo "tree=$(git write-tree)" >> "$GITHUB_OUTPUT"
+      - name: Create update pull request
+        id: pr
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          branch: automation/flake-update
+          base: main
+          add-paths: src/flake.lock
+          delete-branch: true
+          commit-message: "chore(deps): update flake inputs"
+          title: "chore(deps): update flake inputs"
+          body: |
+            Daily `nix flake update`.
+
+            Alejandra, `statix check`, and a full `nix flake check` passed without warnings.
+      - name: Merge validated update
+        if: steps.pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.pr.outputs.pull-request-number }}
+          PR_HEAD: ${{ steps.pr.outputs.pull-request-head-sha }}
+          VALIDATED_TREE: ${{ steps.validated.outputs.tree }}
+        run: |
+          test "$(git rev-parse "${PR_HEAD}^{tree}")" = "$VALIDATED_TREE"
+          gh pr merge "$PR_NUMBER" --squash --delete-branch --match-head-commit "$PR_HEAD"
