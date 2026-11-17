@@ -167,7 +167,6 @@
       # infra/kube
       "k3d"
       "helm"
-      "zarf"
       "uds"
       "atmos"
       "opentofu"

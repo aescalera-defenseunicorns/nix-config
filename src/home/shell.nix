@@ -98,5 +98,7 @@
     codex = "sbx run  --name codex-code -- --cd $PWD";
     prime = "sbx run  --name prime-agent-code -- --cwd $PWD";
     rg = "rg --hidden --glob '!.git'";
+    u = "uds";
+    zarf = "uds zarf";
   };
 }
