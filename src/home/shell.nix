@@ -88,17 +88,14 @@
     cat = "bat";
     tag = "git tag -s";
     push = "git push -u origin $(git rev-parse --abbrev-ref HEAD)";
+    rg = "rg --hidden --glob '!.git'";
+    u = "uds";
+    zarf = "uds zarf";
 
     # if you have the same gpg keys on more than one yubikey/smartcard, this will enable gpg to find the keys on other smartcards.
     sc-relearn = "gpg-connect-agent \"scd serialno\" \"learn --force\" /bye";
 
     urldecode = "python3 -c 'import sys, urllib.parse as ul; print(ul.unquote_plus(sys.stdin.read()))'";
     urlencode = "python3 -c 'import sys, urllib.parse as ul; print(ul.quote_plus(sys.stdin.read()))'";
-
-    codex = "sbx run  --name codex-code -- --cd $PWD";
-    prime = "sbx run  --name prime-agent-code -- --cwd $PWD";
-    rg = "rg --hidden --glob '!.git'";
-    u = "uds";
-    zarf = "uds zarf";
   };
 }

@@ -136,11 +136,6 @@
         trusted = true;
       }
       {
-        # sbx
-        name = "docker/tap";
-        trusted = true;
-      }
-      {
         # tflint
         name = "terraform-linters/tap";
         trusted = true;
@@ -205,13 +200,8 @@
       "raycast" # rofi/dmenu replacement
       "rectangle" # window snapping
 
-      # Development
-      "utm" # vms
-      "sbx"
-      "stablyai/orca/orca"
       "tflint"
       # "obsidian" # digital twin
-      # "devin-desktop" # vscode + chatjippity
       "wireshark-app" # network analyzer
 
       "appgate-sdp-client" # ztna
@@ -220,6 +210,8 @@
       "ghostty"
 
       "chatgpt"
+      "stablyai/orca/orca"
+
       "linear"
 
       "tailscale-app"
