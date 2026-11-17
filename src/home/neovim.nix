@@ -166,7 +166,16 @@
           dockerls.enable = true;
 
           # Markdown
-          marksman.enable = true;
+          marksman = {
+            enable = true;
+            package = pkgs.marksman.override {
+              dotnetCorePackages =
+                pkgs.dotnetCorePackages
+                // {
+                  runtime_9_0 = pkgs.dotnetCorePackages.runtime_9_0-bin;
+                };
+            };
+          };
 
           # GraphQL
           # graphql.enable = true;
@@ -386,7 +395,6 @@
       shfmt
 
       # Markdown
-      marksman
       markdownlint-cli
 
       # GraphQL
